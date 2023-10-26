@@ -1,5 +1,7 @@
 ## HYRAX - CLI Password Manager
 
+![menu image](./img/menu.png)
+
 ### How to install:
 Clone the repo
 ```
@@ -41,4 +43,3 @@ And your output will be like this
 | password   | service   | login    |         1 |
 +------------+-----------+----------+-----------+
 ```
-
