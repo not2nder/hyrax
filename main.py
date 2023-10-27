@@ -23,6 +23,8 @@ def main():
 
 	parser.add_argument("--show",action='store_true',help="Show Psswords")
 	parser.add_argument("--color", action='store_true')
+	parser.add_argument("--style", required=False)
+
 
 	parser.add_argument("--new",required=False)
 	parser.add_argument("-s","--service",required=False)
@@ -52,7 +54,7 @@ def main():
 		if args.show:
 			print(f"{cy if args.color else nm}	      Welcome {args.user}! {nm}\n")
 			table = Table(get_pass_data(args.user,args.password))
-			table.show(color=True if args.color else False)
+			table.show(color=True if args.color else False,style=args.style)
 			sys.exit()
 
 	if args.delete:
@@ -77,16 +79,16 @@ def delete(user,password,pid):
 	else: pass
 
 	delete = cursor.execute(f"""SELECT * FROM password WHERE pass_id={pid}""").fetchone()[0]
-	confirm = input("Confirme a senha que deseja deletar: ")
+	confirm = input("Confirme password to be deleted: ")
 
 	if confirm != delete:
-		print(f"{red}Erro: As senha snão condizem. {nm}")
+		print(f"{red}Error: Passwords don't match. {nm}")
 		sys.exit(1)
 
 	cursor.execute(f"""DELETE FROM password WHERE pass_id='{pid}' AND user_id='{get_uid(user,password)}'""")
 	conn.commit()
 
-	print("Senha Deletada!")
+	print("Deleted!")
 
 def new(user,password,n_pass,login,service):
 

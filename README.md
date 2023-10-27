@@ -3,10 +3,12 @@
 ![menu image](./img/menu.png)
 
 ### How to install:
+Open your terminal
 Clone the repo
 ```
 git clone https://github.com/not2nder/hyrax
 ```
+Open the main folder
 Install the dependencies
 ```
 cd hyrax
@@ -74,3 +76,4 @@ You can also pass the `pid` of the password in the command
 | --login    | (New) login for new pass        |      -l     |
 | --delete   | Delete an existing password     |             |
 | --pid      | (Delete) id of deleted password |             |
+| --style    | style of the table (5)          |             |
